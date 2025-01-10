@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/16 22:08:02 by abetemps          #+#    #+#             */
-/*   Updated: 2024/11/21 01:00:30 by abetemps         ###   ########.fr       */
+/*   Created: 2024/11/05 13:17:43 by abetemps          #+#    #+#             */
+/*   Updated: 2024/11/21 01:05:31 by abetemps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar_fd(char c, int fd)
+int	ft_isdigit(int c)
 {
-	write(fd, &c, 1);
+	if (c >= '0' && c <= '9')
+		return ('9');
+	return (0);
 }
