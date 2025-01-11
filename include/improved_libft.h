@@ -58,7 +58,7 @@ void				*ft_clear_struct(t_buff *data);
 
 // Utils ===========================================================================
 // Char & String  ------------------------------------------------------------------
-size_t				ft_strlen(char *s);
+size_t				ft_strlen(const char *s);
 int					ft_count_words(char const *s, char c);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);

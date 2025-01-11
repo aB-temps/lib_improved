@@ -14,12 +14,9 @@
 
 void	*ft_clear_struct(t_buff *data)
 {
-	ft_freestr(data->full_buff);
-	ft_freestr(data->residual);
-	ft_freestr(data->valid_line);
-	data->full_buff = NULL;
-	data->residual = NULL;
-	data->valid_line = NULL;
+	data->full_buff = ft_freestr(data->full_buff);
+	data->residual = ft_freestr(data->residual);
+	data->valid_line = ft_freestr(data->valid_line);
 	return (data);
 }
 

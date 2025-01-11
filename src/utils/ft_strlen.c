@@ -6,13 +6,13 @@
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 09:22:20 by abetemps          #+#    #+#             */
-/*   Updated: 2025/01/10 18:33:07 by abetemps         ###   ########.fr       */
+/*   Updated: 2025/01/11 04:01:50 by abetemps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/improved_libft.h"
 
-size_t	ft_strlen(char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
