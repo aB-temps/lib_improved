@@ -6,11 +6,11 @@
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 19:03:26 by abetemps          #+#    #+#             */
-/*   Updated: 2025/01/10 18:51:03 by abetemps         ###   ########.fr       */
+/*   Updated: 2025/01/13 19:21:37 by abetemps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/improved_libft.h"
+#include "improved_libft.h"
 
 void	ft_putchar_fd(char c, ssize_t *len, int fd)
 {

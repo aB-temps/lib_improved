@@ -6,7 +6,7 @@
 #    By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 11:53:48 by abetemps          #+#    #+#              #
-#    Updated: 2025/01/13 12:03:12 by abetemps         ###   ########.fr        #
+#    Updated: 2025/01/13 23:11:12 by abetemps         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,6 @@
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 NAME = lib-improved.a
-NAME_PRINT = dprintf.a 
-NAME_READ = get_next_line.a
-NAME_UTILS = lib-improved-utils.a
 
 # COMPONENTS =============================================================================
 COMPONENTS :=	PRINT \
@@ -33,15 +30,15 @@ SRC_$(1) = $$(addprefix $$(DIR_$(1)),$$(F_$(1)))
 endef
 
 define generate_var_objects
-OBJ_$(1) = $$(patsubst %.c,%.o,$$(SRC_$(1)))
+OBJ_$(1) = $$(patsubst $$(DIR_SRC)%.c,$$(DIR_OBJ)/%.o,$$(SRC_$(1)))
 endef
 
 # FILES ==================================================================================
-F_INC = 	improved_libft.h
-F_PRINT =  	ft_printf.c \
+F_INC := 	improved_libft.h
+F_PRINT :=  ft_printf.c \
 			ft_printf_utils.c
-F_READ = 	get_next_line.c
-F_UTILS =	ft_atoi.c \
+F_READ := 	get_next_line.c
+F_UTILS :=	ft_atoi.c \
 			ft_freestr_tab.c \
 			ft_isprint.c \
 			ft_lstdelone.c \
@@ -90,7 +87,7 @@ F_UTILS =	ft_atoi.c \
 # DIR ==================================================================================
 DIR_INC = include/
 DIR_SRC = src/
-DIR_OBJ = obj/
+DIR_OBJ = $(addsuffix objects/, $(DIR_SRC))
 $(foreach comp,$(COMPONENTS),$(eval $(call generate_var_sources_dir,$(comp))))
 
 # INCLUDE ==============================================================================
@@ -103,39 +100,35 @@ $(foreach comp,$(COMPONENTS),$(eval $(call generate_var_sources,$(comp))))
 # OBJECTS =============================================================================
 $(foreach comp,$(COMPONENTS),$(eval $(call generate_var_objects,$(comp))))
 
-# RULES ===============================================================================
-# versions ----------------------------------------------------------------------------
-all : $(NAME)
-print : $(NAME_PRINT)
-read : $(NAME_READ)
-utils : $(NAME_UTILS)
-
-# objects -----------------------------------------------------------------------------
 OBJECTS := $(foreach comp, $(COMPONENTS), $(OBJ_$(comp)))
 
-%.o: %.c $(INCLUDE)
-	$(CC) $(CFLAGS) -I$(INCLUDE) -c $< -o $@
+$(DIR_OBJ):
+	mkdir -p $@
 
+$(DIR_OBJ)/%.o: $(DIR_SRC)%.c $(DIR_INC)
+	mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -I $(DIR_INC) -o $@
 
+# RULES ===============================================================================
 # make --------------------------------------------------------------------------------
-$(NAME): $(OBJECTS) $(INCLUDE)
-	ar rcs $(NAME) $(OBJECTS) $(INCLUDE)
+all : $(NAME)
 
-$(NAME_PRINT): $(OBJ_PRINT) $(OBJ_UTILS) $(INCLUDE)
-	ar rcs $(NAME_PRINT) $(OBJ_PRINT) $(OBJ_UTILS) $(INCLUDE)
-
-$(NAME_READ): $(OBJ_READ) $(OBJ_UTILS) $(INCLUDE)
-	ar rcs $(NAME_READ) $(OBJ_READ) $(OBJ_UTILS) $(INCLUDE)
-
-$(NAME_UTILS): $(OBJ_UTILS) $(INCLUDE)
-	ar rcs $(NAME_UTILS) $(OBJ_UTILS) $(INCLUDE)
+$(NAME): $(DIR_OBJ) $(OBJECTS)
+	ar rcs $(NAME) $(OBJECTS) 
 
 clean:
-	rm $(OBJECTS)
+	rm -rf $(DIR_OBJ)
 
 fclean: clean
-	rm -f $(NAME) $(NAME_PRINT) $(NAME_READ) $(NAME_UTILS)
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all print read utils clean fclean re
+# debug --------------------------------------------------------------------------------
+
+print-%:
+	@echo $($(patsubst print-%,%,$@))
+
+.DEFAULT_GOAL = all
+
+.PHONY: all print read utils clean fclean re print-%

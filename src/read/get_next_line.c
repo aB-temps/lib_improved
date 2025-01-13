@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/improved_libft.h"
+#include "improved_libft.h"
 
 void	*ft_clear_struct(t_buff *data)
 {

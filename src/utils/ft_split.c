@@ -6,11 +6,11 @@
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:33:04 by abetemps          #+#    #+#             */
-/*   Updated: 2025/01/10 19:19:05 by abetemps         ###   ########.fr       */
+/*   Updated: 2025/01/13 19:21:11 by abetemps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/improved_libft.h"
+#include "improved_libft.h"
 
 char	**ft_split(char const *s, char c)
 {

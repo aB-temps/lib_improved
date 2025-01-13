@@ -6,11 +6,11 @@
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 15:20:27 by abetemps          #+#    #+#             */
-/*   Updated: 2025/01/10 18:37:52 by abetemps         ###   ########.fr       */
+/*   Updated: 2025/01/13 19:21:11 by abetemps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/improved_libft.h"
+#include "improved_libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
