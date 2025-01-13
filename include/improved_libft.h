@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   improved_libft.h                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/13 12:03:41 by abetemps          #+#    #+#             */
+/*   Updated: 2025/01/13 12:04:59 by abetemps         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef IMPROVED_LIBFT_H
 # define IMPROVED_LIBFT_H
 
-// Libraries =======================================================================
+// Libraries ============================================================
 # include <fcntl.h>
 # include <limits.h>
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
-// =================================================================================
+// ======================================================================
 
-// Var =============================================================================
+// Var ==================================================================
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
@@ -17,16 +29,16 @@
 # ifndef MAX_FD
 #  define MAX_FD 1024
 # endif
-// =================================================================================
+// ======================================================================
 
-// Structures ======================================================================
-// linked list struct --------------------------------------------------------------
+// Structures ===========================================================
+// linked list struct ---------------------------------------------------
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
-// get_next_line struct ------------------------------------------------------------
+// get_next_line struct -------------------------------------------------
 typedef struct s_buff
 {
 	char			*full_buff;
@@ -34,8 +46,8 @@ typedef struct s_buff
 	char			*valid_line;
 	int				read_value;
 }					t_buff;
-// =================================================================================
-// Print something =================================================================
+// ======================================================================
+// Print something ======================================================
 int					ft_printf(int fd, const char *str,
 						...) __attribute__((format(printf, 2, 3)));
 void				ft_handle_datatype(char c, va_list *cursor, ssize_t *length,
@@ -46,18 +58,18 @@ void				ft_putstr_fd(char *s, ssize_t *len, int fd);
 void				ft_putnbr_fd(long long n, ssize_t *len, int fd);
 void				ft_putnbr_base_fd(unsigned long int nbr, char c,
 						ssize_t *len, int fd);
-// =================================================================================
+// =======================================================================
 
-// Read a file =====================================================================
+// Read a file ===========================================================
 char				*get_next_line(int fd);
 void				*ft_parse_line(int fd, t_buff *data);
 void				*ft_extract_line(t_buff *data);
 void				ft_init_struct(t_buff *data, char *residual);
 void				*ft_clear_struct(t_buff *data);
-// =================================================================================
+// =======================================================================
 
-// Utils ===========================================================================
-// Char & String  ------------------------------------------------------------------
+// Utils =================================================================
+// Char & String  --------------------------------------------------------
 size_t				ft_strlen(const char *s);
 int					ft_count_words(char const *s, char c);
 int					ft_isalnum(int c);
@@ -82,7 +94,7 @@ char				*ft_strnstr(const char *big, const char *little,
 						size_t len);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(const char *s, unsigned int start, size_t len);
-// Linked List  --------------------------------------------------------------------
+// Linked List  ----------------------------------------------------------
 void				ft_lstadd_front(t_list **lst, t_list *new);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_lstclear(t_list **lst, void (*del)(void *));
@@ -93,7 +105,7 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 t_list				*ft_lstnew(void *content);
 int					ft_lstsize(t_list *lst);
-// Memory --------------------------------------------------------------------------
+// Memory ----------------------------------------------------------------
 void				*ft_calloc(size_t nmemb, size_t size);
 void				*ft_freestr(char *s);
 void				*ft_freestr_tab(char **nstrs);
@@ -103,11 +115,10 @@ void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memcpy(void *dest, const void *src, size_t n);
 void				*ft_memmove(void *dest, const void *src, size_t n);
-// Conversion & Int management -----------------------------------------------------
+// Conversion & Int management -------------------------------------------
 int					ft_uintlen(unsigned int n);
 int					ft_atoi(const char *nptr);
 char				*ft_itoa(int n);
-// =================================================================================
-
+// =======================================================================
 
 #endif
