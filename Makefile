@@ -6,20 +6,17 @@
 #    By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 11:53:48 by abetemps          #+#    #+#              #
-#    Updated: 2025/01/11 04:30:39 by abetemps         ###   ########.fr        #
+#    Updated: 2025/01/13 11:59:09 by abetemps         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # GENERAL SETTINGS =======================================================================
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
-PREFIX_EXE = lib
-SUFFIX_EXE = .a
-NAME = $(addsuffix $(SUFFIX_EXE),improved_libft)
-# NAME_PRINT = $(addsuffix $(SUFFIX_EXE),imp_lib_print)
-NAME_PRINT = $(addprefix $(PREFIX_EXE),imp_lib_print.a)
-NAME_READ = $(addsuffix $(SUFFIX_EXE),imp_lib_read)
-NAME_UTILS = $(addsuffix $(SUFFIX_EXE),imp_lib_utils)
+NAME = lib-improved.a
+NAME_PRINT = dprintf.a 
+NAME_READ = get_next_line.a
+NAME_UTILS = lib-improved-utils.a
 
 # COMPONENTS =============================================================================
 COMPONENTS :=	PRINT \
