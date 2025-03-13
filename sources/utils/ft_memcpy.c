@@ -6,11 +6,11 @@
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 17:20:46 by abetemps          #+#    #+#             */
-/*   Updated: 2025/03/13 21:04:10 by abetemps         ###   ########.fr       */
+/*   Updated: 2025/03/13 22:41:06 by abetemps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib-improved.h"
+#include "lib_improved.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {

@@ -6,11 +6,11 @@
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 14:44:03 by abetemps          #+#    #+#             */
-/*   Updated: 2025/03/13 21:04:10 by abetemps         ###   ########.fr       */
+/*   Updated: 2025/03/13 22:41:06 by abetemps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib-improved.h"
+#include "lib_improved.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
