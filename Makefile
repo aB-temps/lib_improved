@@ -6,7 +6,7 @@
 #    By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 11:53:48 by abetemps          #+#    #+#              #
-#    Updated: 2025/03/13 20:52:57 by abetemps         ###   ########.fr        #
+#    Updated: 2025/03/13 21:06:09 by abetemps         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +30,11 @@ SRC_$(1) = $$(addprefix $$(DIR_$(1)),$$(F_$(1)))
 endef
 
 define generate_var_objects
-OBJ_$(1) = $$(patsubst $$(DIR_SRC)%.c,$$(DIR_OBJ)/%.o,$$(SRC_$(1)))
+OBJ_$(1) = $$(patsubst $$(DIR_SRC)%.c,$$(DIR_OBJ)%.o,$$(SRC_$(1)))
 endef
 
 # FILES ==================================================================================
-F_INC := 	improved_libft.h
+F_INC := 	lib-improved.h
 F_PRINT :=  ft_printf.c \
 			ft_printf_utils.c
 F_READ := 	get_next_line.c

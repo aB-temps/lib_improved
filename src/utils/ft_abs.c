@@ -6,11 +6,11 @@
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 16:00:30 by abetemps          #+#    #+#             */
-/*   Updated: 2025/03/13 14:25:48 by abetemps         ###   ########.fr       */
+/*   Updated: 2025/03/13 21:04:10 by abetemps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "improved_libft.h"
+#include "lib-improved.h"
 
 int	ft_abs(int value)
 {

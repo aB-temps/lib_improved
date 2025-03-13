@@ -6,11 +6,11 @@
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 19:18:46 by abetemps          #+#    #+#             */
-/*   Updated: 2025/01/13 19:21:11 by abetemps         ###   ########.fr       */
+/*   Updated: 2025/03/13 21:04:10 by abetemps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "improved_libft.h"
+#include "lib-improved.h"
 
 int	ft_count_words(char const *s, char c)
 {

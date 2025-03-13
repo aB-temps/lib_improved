@@ -6,11 +6,11 @@
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 22:55:40 by abetemps          #+#    #+#             */
-/*   Updated: 2025/01/13 19:21:11 by abetemps         ###   ########.fr       */
+/*   Updated: 2025/03/13 21:04:10 by abetemps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "improved_libft.h"
+#include "lib-improved.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
