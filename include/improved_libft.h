@@ -6,7 +6,7 @@
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 12:03:41 by abetemps          #+#    #+#             */
-/*   Updated: 2025/01/13 12:04:59 by abetemps         ###   ########.fr       */
+/*   Updated: 2025/03/13 14:26:05 by abetemps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ void				*ft_memmove(void *dest, const void *src, size_t n);
 int					ft_uintlen(unsigned int n);
 int					ft_atoi(const char *nptr);
 char				*ft_itoa(int n);
+int					ft_abs(int value);
 // =======================================================================
 
 #endif
