@@ -6,14 +6,14 @@
 #    By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 11:53:48 by abetemps          #+#    #+#              #
-#    Updated: 2025/03/13 22:41:20 by abetemps         ###   ########.fr        #
+#    Updated: 2025/03/18 17:30:56 by abetemps         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # GENERAL SETTINGS =======================================================================
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
-NAME = lib_improved.a
+NAME = lib-improved.a
 
 # COMPONENTS =============================================================================
 COMPONENTS :=	PRINT \
@@ -34,7 +34,7 @@ OBJ_$(1) = $$(patsubst $$(DIR_SRC)%.c,$$(DIR_OBJ)%.o,$$(SRC_$(1)))
 endef
 
 # FILES ==================================================================================
-F_INC := 	lib_improved.h
+F_INC := 	lib-improved.h
 F_PRINT :=  ft_printf.c \
 			ft_printf_utils.c
 F_READ := 	get_next_line.c
