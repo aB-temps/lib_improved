@@ -93,7 +93,8 @@ t_buff	get_next_line(int fd)
 	if (fd < 0 || fd > MAX_FD || BUFFER_SIZE < 1)
 	{
 		residual[fd] = NULL;
-		return (NULL);
+		data.valid_line = NULL;
+		return (data);
 	}
 	ft_init_struct(&data, residual[fd]);
 	ft_parse_line(fd, &data);
