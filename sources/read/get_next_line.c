@@ -85,7 +85,7 @@ void	*ft_parse_line(int fd, t_buff *data)
 	return (data);
 }
 
-char	*get_next_line(int fd)
+t_buff	get_next_line(int fd)
 {
 	static char	*residual[MAX_FD];
 	t_buff		data;
@@ -98,5 +98,5 @@ char	*get_next_line(int fd)
 	ft_init_struct(&data, residual[fd]);
 	ft_parse_line(fd, &data);
 	residual[fd] = data.residual;
-	return (data.valid_line);
+	return (data);
 }
