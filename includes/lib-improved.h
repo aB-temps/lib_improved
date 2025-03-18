@@ -61,7 +61,7 @@ void				ft_putnbr_base_fd(unsigned long int nbr, char c,
 // =======================================================================
 
 // Read a file ===========================================================
-char				*get_next_line(int fd);
+t_buff				get_next_line(int fd);
 void				*ft_parse_line(int fd, t_buff *data);
 void				*ft_extract_line(t_buff *data);
 void				ft_init_struct(t_buff *data, char *residual);
