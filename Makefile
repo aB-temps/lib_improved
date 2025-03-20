@@ -6,7 +6,7 @@
 #    By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 11:53:48 by abetemps          #+#    #+#              #
-#    Updated: 2025/03/18 17:30:56 by abetemps         ###   ########.fr        #
+#    Updated: 2025/03/20 23:05:20 by abetemps         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,6 +82,8 @@ F_UTILS :=	ft_atoi.c \
 			ft_striteri.c \
 			ft_strmapi.c \
 			ft_strtrim.c \
+			ft_atoi_base.c \
+			ft_pow.c \
 			ft_abs.c \
 
 

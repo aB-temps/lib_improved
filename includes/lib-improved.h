@@ -118,8 +118,11 @@ void				*ft_memmove(void *dest, const void *src, size_t n);
 // Conversion & Int management -------------------------------------------
 int					ft_uintlen(unsigned int n);
 int					ft_atoi(const char *nptr);
+int					ft_atoi_base(char *s, int base);
 char				*ft_itoa(int n);
+// Math ------------------------------------------------------------------
 int					ft_abs(int value);
+int					ft_pow(int n, int p);
 // =======================================================================
 
 #endif
