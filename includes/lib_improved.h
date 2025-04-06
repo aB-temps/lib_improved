@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib-improved.h                                   :+:      :+:    :+:   */
+/*   lib_improved.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -123,6 +123,9 @@ char				*ft_itoa(int n);
 // Math ------------------------------------------------------------------
 int					ft_abs(int value);
 int					ft_pow(int n, int p);
+int					ft_min(int val_a, int val_b);
+int					ft_max(int val_a, int val_b);
+int					ft_sign(int n);
 // =======================================================================
 
 #endif

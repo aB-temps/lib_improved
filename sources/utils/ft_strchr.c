@@ -6,11 +6,11 @@
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:55:34 by abetemps          #+#    #+#             */
-/*   Updated: 2025/03/18 23:12:52 by abetemps         ###   ########.fr       */
+/*   Updated: 2025/04/06 15:44:12 by abetemps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib-improved.h"
+#include "lib_improved.h"
 
 char	*ft_strchr(const char *s, int c)
 {
