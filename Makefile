@@ -6,7 +6,7 @@
 #    By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 11:53:48 by abetemps          #+#    #+#              #
-#    Updated: 2025/04/08 19:23:22 by abetemps         ###   ########.fr        #
+#    Updated: 2025/04/08 19:25:09 by abetemps         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -119,7 +119,7 @@ DEPS := $(foreach comp, $(COMPONENTS), $(DEPS_$(comp)))
 
 # COMPILATION =========================================================================
 $(NAME) : $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	ar rcs $@ $^
 	@echo ✨ $(NAME) compiled ✨
 
 $(DIR_BUILD) :
