@@ -6,35 +6,53 @@
 #    By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 11:53:48 by abetemps          #+#    #+#              #
-#    Updated: 2025/04/06 16:22:13 by abetemps         ###   ########.fr        #
+#    Updated: 2025/04/08 02:40:19 by abetemps         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# GENERAL SETTINGS =======================================================================
-CC = cc
-CFLAGS = -Wall -Werror -Wextra
+# GENERAL SETTINGS ====================================================================
 NAME = lib_improved.a
+.SILENT:
 
-# COMPONENTS =============================================================================
+# DIRECTORIES==========================================================================
+DIR_SRC		:= sources/
+DIR_INC 	:= includes/
+DIR_BUILD	:= .build/
+
+# FLAGS & COMPILATOR SETTINGS =========================================================
+CC 			:= cc
+DEPS_FLAGS  := -MMD -MP
+WARN_FLAGS	:= -Wall -Werror -Wextra
+C_FLAGS		:= $(WARN_FLAGS) $(DEPS_FLAGS)
+INC_FLAG	:= -I$(DIR_INC)
+
+COMP 		:= $(CC) $(C_FLAGS) $(INC_FLAG)
+
+ANTI_RELINK	:= Makefile $(DIR_INC) $(DIR_INC_LIB) 
+
+# FUNCTIONS ===========================================================================
+define generate_var_sources_dir
+DIR_$(1) = $(addprefix $(DIR_SRC), $(shell echo $(1) | tr '[:upper:]' '[:lower:]')/)
+endef
+
+define generate_var_sources
+SRC_$(1) = $(addprefix $(DIR_$(1)),$(F_$(1)))
+endef
+
+define generate_var_objects
+OBJS_$(1) = $(patsubst $(DIR_SRC)%.c,$(DIR_BUILD)%.o,$(SRC_$(1)))
+endef
+
+define generate_var_deps
+DEPS_$(1) = $(patsubst $(DIR_SRC)%.c,$(DIR_BUILD)%.d,$(SRC_$(1)))
+endef
+
+# COMPONENTS ==========================================================================
 COMPONENTS :=	PRINT \
 				READ \
 				UTILS
 
-# FUNCTIONS ==============================================================================
-define generate_var_sources_dir
-DIR_$(1) = $$(addprefix $$(DIR_SRC), $(shell echo $(1) | tr '[:upper:]' '[:lower:]')/)
-endef
-
-define generate_var_sources
-SRC_$(1) = $$(addprefix $$(DIR_$(1)),$$(F_$(1)))
-endef
-
-define generate_var_objects
-OBJ_$(1) = $$(patsubst $$(DIR_SRC)%.c,$$(DIR_OBJ)%.o,$$(SRC_$(1)))
-endef
-
-# FILES ==================================================================================
-F_INC := 	lib_improved.h
+# FILES ===============================================================================
 F_PRINT :=  ft_printf.c \
 			ft_printf_utils.c
 F_READ := 	get_next_line.c
@@ -89,51 +107,49 @@ F_UTILS :=	ft_atoi.c \
 			ft_max.c \
 			ft_sign.c
 
-# DIR ==================================================================================
-DIR_INC = includes/
-DIR_SRC = sources/
-DIR_OBJ = .objects/
+# VARS GENERATION =====================================================================
 $(foreach comp,$(COMPONENTS),$(eval $(call generate_var_sources_dir,$(comp))))
-
-# INCLUDE ==============================================================================
-INCLUDE = $(addprefix $(DIR_INC),$(F_INC))
-
-# SOURCES =============================================================================
 $(foreach comp,$(COMPONENTS),$(eval $(call generate_var_sources,$(comp))))
-
-
-# OBJECTS =============================================================================
 $(foreach comp,$(COMPONENTS),$(eval $(call generate_var_objects,$(comp))))
+$(foreach comp,$(COMPONENTS),$(eval $(call generate_var_deps,$(comp))))
 
-OBJECTS := $(foreach comp, $(COMPONENTS), $(OBJ_$(comp)))
+OBJS := $(foreach comp, $(COMPONENTS), $(OBJS_$(comp)))
 
-$(DIR_OBJ):
-	mkdir -p $@
+DEPS := $(foreach comp, $(COMPONENTS), $(DEPS_$(comp)))
 
-$(DIR_OBJ)%.o: $(DIR_SRC)%.c $(DIR_INC)
-	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -I $(DIR_INC) -o $@
+# COMPILATION =========================================================================
+$(NAME) : $(OBJS)
+	ar rcs $@ $<
+	@echo ✨ $(NAME) compiled ✨
+
+$(DIR_BUILD) :
+	@mkdir -p $(DIR_BUILD)
+
+$(DIR_BUILD)%.o : $(DIR_SRC)%.c $(ANTI_RELINK) | $(DIR_BUILD)
+	@mkdir -p $(dir $@)
+	$(COMP) -c $< -o $@
+
+-include $(DEPS)
 
 # RULES ===============================================================================
-# make --------------------------------------------------------------------------------
+# build -------------------------------------------------------------------------------
 all : $(NAME)
 
-$(NAME): $(DIR_OBJ) $(OBJECTS)
-	ar rcs $(NAME) $(OBJECTS) 
 
+
+# clean -------------------------------------------------------------------------------
 clean:
-	rm -rf $(DIR_OBJ)
+	@rm -rf $(DIR_BUILD)
 
 fclean: clean
-	rm -f $(NAME)
-
+	@rm -f $(NAME)
+	
 re: fclean all
-
-# debug --------------------------------------------------------------------------------
-
-print-%:
-	@echo $($(patsubst print-%,%,$@))
 
 .DEFAULT_GOAL = all
 
-.PHONY: all print read utils clean fclean re print-%
+# debug -------------------------------------------------------------------------------
+print-%:
+	@echo $($(patsubst print-%,%,$@))
+
+.PHONY: all clean fclean re print-%
