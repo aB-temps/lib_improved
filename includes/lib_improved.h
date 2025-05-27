@@ -48,6 +48,7 @@ typedef struct s_buff
 	int				read_value;
 }					t_buff;
 // ======================================================================
+
 // CHECK
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
@@ -119,11 +120,6 @@ char				*ft_strnstr(const char *big, const char *little,
 						size_t len);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(const char *s, unsigned int start, size_t len);
-// Linked List
-
-// Memory
-
-// Math
 
 // =======================================================================
 
