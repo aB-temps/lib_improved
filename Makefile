@@ -6,7 +6,7 @@
 #    By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 11:53:48 by abetemps          #+#    #+#              #
-#    Updated: 2025/05/27 18:56:55 by abetemps         ###   ########.fr        #
+#    Updated: 2025/05/27 21:26:56 by abetemps         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,6 @@ F_CHECK :=		ft_isalnum.c \
 F_CONVERSION :=	ft_atoi.c \
 				ft_atoi_base.c \
 				ft_itoa.c \
-				ft_uintlen.c \
 				ft_tolower.c \
 				ft_toupper.c \
 

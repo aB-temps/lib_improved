@@ -62,7 +62,6 @@ int					ft_tolower(int c);
 int					ft_atoi(const char *nptr);
 int					ft_atoi_base(char *s, int base);
 char				*ft_itoa(int n);
-int					ft_uintlen(unsigned int n);
 // IO
 int					ft_printf(int fd, const char *str,
 						...) __attribute__((format(printf, 2, 3)));

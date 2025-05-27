@@ -6,11 +6,24 @@
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 22:39:13 by abetemps          #+#    #+#             */
-/*   Updated: 2025/04/06 15:44:12 by abetemps         ###   ########.fr       */
+/*   Updated: 2025/05/27 21:26:47 by abetemps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib_improved.h"
+
+static int	ft_uintlen(unsigned int n)
+{
+	int	len;
+
+	len = 0;
+	while (n > 0)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
 
 static char	ft_slice(unsigned int nb, int index)
 {
