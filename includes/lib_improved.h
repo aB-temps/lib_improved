@@ -17,6 +17,7 @@
 # include <fcntl.h>
 # include <limits.h>
 # include <stdarg.h>
+# include <stdbool.h>
 # include <stdlib.h>
 # include <unistd.h>
 // ======================================================================
@@ -32,13 +33,13 @@
 // ======================================================================
 
 // Structures ===========================================================
-// linked list struct ---------------------------------------------------
+// linked list struct --------
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
-// get_next_line struct -------------------------------------------------
+// get_next_line struct ------
 typedef struct s_buff
 {
 	char			*full_buff;
@@ -47,7 +48,21 @@ typedef struct s_buff
 	int				read_value;
 }					t_buff;
 // ======================================================================
-// Print something ======================================================
+// CHECK
+int					ft_isalnum(int c);
+int					ft_isalpha(int c);
+int					ft_isascii(int c);
+int					ft_isdigit(int c);
+int					ft_isprint(int c);
+bool				ft_iswhitespace(int c);
+// CONVERSION
+int					ft_toupper(int c);
+int					ft_tolower(int c);
+int					ft_atoi(const char *nptr);
+int					ft_atoi_base(char *s, int base);
+char				*ft_itoa(int n);
+int					ft_uintlen(unsigned int n);
+// IO
 int					ft_printf(int fd, const char *str,
 						...) __attribute__((format(printf, 2, 3)));
 void				ft_handle_datatype(char c, va_list *cursor, ssize_t *length,
@@ -58,27 +73,41 @@ void				ft_putstr_fd(char *s, ssize_t *len, int fd);
 void				ft_putnbr_fd(long long n, ssize_t *len, int fd);
 void				ft_putnbr_base_fd(unsigned long int nbr, char c,
 						ssize_t *len, int fd);
-// =======================================================================
-
-// Read a file ===========================================================
 t_buff				get_next_line(int fd);
 void				*ft_parse_line(int fd, t_buff *data);
 void				*ft_extract_line(t_buff *data);
 void				ft_init_struct(t_buff *data, char *residual);
 void				*ft_clear_struct(t_buff *data);
-// =======================================================================
-
-// Utils =================================================================
-// Char & String  --------------------------------------------------------
+// LISTS
+void				ft_lstadd_front(t_list **lst, t_list *new);
+void				ft_lstadd_back(t_list **lst, t_list *new);
+void				ft_lstclear(t_list **lst, void (*del)(void *));
+void				ft_lstdelone(t_list *lst, void (*del)(void *));
+void				ft_lstiter(t_list *lst, void (*f)(void *));
+t_list				*ft_lstlast(t_list *lst);
+t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
+						void (*del)(void *));
+t_list				*ft_lstnew(void *content);
+int					ft_lstsize(t_list *lst);
+// MATH
+int					ft_abs(int value);
+int					ft_pow(int n, int p);
+int					ft_min(int val_a, int val_b);
+int					ft_max(int val_a, int val_b);
+int					ft_sign(int n);
+// MEMORY
+void				*ft_calloc(size_t nmemb, size_t size);
+void				*ft_freestr(char *s);
+void				*ft_freestr_tab(char **nstrs);
+void				*ft_memset(void *s, int c, size_t n);
+void				ft_bzero(void *s, size_t n);
+void				*ft_memchr(const void *s, int c, size_t n);
+int					ft_memcmp(const void *s1, const void *s2, size_t n);
+void				*ft_memcpy(void *dest, const void *src, size_t n);
+void				*ft_memmove(void *dest, const void *src, size_t n);
+// STRING
 size_t				ft_strlen(const char *s);
 int					ft_count_words(char const *s, char c);
-int					ft_isalnum(int c);
-int					ft_isalpha(int c);
-int					ft_isascii(int c);
-int					ft_isdigit(int c);
-int					ft_isprint(int c);
-int					ft_toupper(int c);
-int					ft_tolower(int c);
 char				**ft_split(char const *s, char c);
 char				*ft_stradd(char *s1, char *s2);
 char				*ft_strjoin(char const *s1, char const *s2);
@@ -94,38 +123,12 @@ char				*ft_strnstr(const char *big, const char *little,
 						size_t len);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(const char *s, unsigned int start, size_t len);
-// Linked List  ----------------------------------------------------------
-void				ft_lstadd_front(t_list **lst, t_list *new);
-void				ft_lstadd_back(t_list **lst, t_list *new);
-void				ft_lstclear(t_list **lst, void (*del)(void *));
-void				ft_lstdelone(t_list *lst, void (*del)(void *));
-void				ft_lstiter(t_list *lst, void (*f)(void *));
-t_list				*ft_lstlast(t_list *lst);
-t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
-						void (*del)(void *));
-t_list				*ft_lstnew(void *content);
-int					ft_lstsize(t_list *lst);
-// Memory ----------------------------------------------------------------
-void				*ft_calloc(size_t nmemb, size_t size);
-void				*ft_freestr(char *s);
-void				*ft_freestr_tab(char **nstrs);
-void				*ft_memset(void *s, int c, size_t n);
-void				ft_bzero(void *s, size_t n);
-void				*ft_memchr(const void *s, int c, size_t n);
-int					ft_memcmp(const void *s1, const void *s2, size_t n);
-void				*ft_memcpy(void *dest, const void *src, size_t n);
-void				*ft_memmove(void *dest, const void *src, size_t n);
-// Conversion & Int management -------------------------------------------
-int					ft_uintlen(unsigned int n);
-int					ft_atoi(const char *nptr);
-int					ft_atoi_base(char *s, int base);
-char				*ft_itoa(int n);
-// Math ------------------------------------------------------------------
-int					ft_abs(int value);
-int					ft_pow(int n, int p);
-int					ft_min(int val_a, int val_b);
-int					ft_max(int val_a, int val_b);
-int					ft_sign(int n);
+// Linked List
+
+// Memory
+
+// Math
+
 // =======================================================================
 
 #endif

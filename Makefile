@@ -6,7 +6,7 @@
 #    By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 11:53:48 by abetemps          #+#    #+#              #
-#    Updated: 2025/04/08 19:25:09 by abetemps         ###   ########.fr        #
+#    Updated: 2025/05/27 18:56:55 by abetemps         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,64 +48,78 @@ DEPS_$(1) = $(patsubst $(DIR_SRC)%.c,$(DIR_BUILD)%.d,$(SRC_$(1)))
 endef
 
 # COMPONENTS ==========================================================================
-COMPONENTS :=	PRINT \
-				READ \
+COMPONENTS :=	CHECK \
+				CONVERSION \
+				IO \
+				LISTS \
+				MATH \
+				MEMORY\
+				STRING \
 				UTILS
 
 # FILES ===============================================================================
-F_PRINT :=  ft_printf.c \
-			ft_printf_utils.c
-F_READ := 	get_next_line.c
-F_UTILS :=	ft_atoi.c \
-			ft_freestr_tab.c \
-			ft_isprint.c \
-			ft_lstdelone.c \
-			ft_lstsize.c \
-			ft_memset.c \
-			ft_strjoin.c \
-			ft_strncmp.c \
-			ft_substr.c \
-			ft_bzero.c \
-			ft_isalnum.c \
-			ft_itoa.c \
-			ft_lstiter.c \
-			ft_memchr.c \
-			ft_split.c \
-			ft_strlcat.c \
-			ft_strndup.c \
-			ft_tolower.c \
-			ft_calloc.c \
-			ft_isalpha.c \
-			ft_lstadd_back.c \
-			ft_lstlast.c \
-			ft_memcmp.c \
-			ft_stradd.c \
-			ft_strlcpy.c \
-			ft_strnstr.c \
-			ft_toupper.c \
-			ft_count_words.c \
-			ft_isascii.c \
-			ft_lstadd_front.c \
-			ft_lstmap.c \
-			ft_memcpy.c \
-			ft_strchr.c \
-			ft_strlen.c \
-			ft_strrchr.c \
-			ft_uintlen.c \
-			ft_freestr.c \
-			ft_isdigit.c \
-			ft_lstclear.c \
-			ft_lstnew.c \
-			ft_memmove.c \
-			ft_striteri.c \
-			ft_strmapi.c \
-			ft_strtrim.c \
-			ft_atoi_base.c \
-			ft_pow.c \
-			ft_abs.c \
-			ft_min.c \
-			ft_max.c \
-			ft_sign.c
+F_CHECK :=		ft_isalnum.c \
+				ft_isalpha.c \
+				ft_isascii.c \
+				ft_isdigit.c \
+				ft_isprint.c \
+				ft_iswhitespace.c \
+
+F_CONVERSION :=	ft_atoi.c \
+				ft_atoi_base.c \
+				ft_itoa.c \
+				ft_uintlen.c \
+				ft_tolower.c \
+				ft_toupper.c \
+
+F_IO :=			ft_printf.c \
+				ft_printf_utils.c \
+				get_next_line.c \
+
+F_LISTS :=		ft_lstadd_back.c \
+				ft_lstadd_front.c \
+				ft_lstclear.c \
+				ft_lstdelone.c \
+				ft_lstiter.c \
+				ft_lstlast.c \
+				ft_lstmap.c \
+				ft_lstnew.c \
+				ft_lstsize.c \
+	
+F_MATH :=		ft_abs.c \
+				ft_max.c \
+				ft_min.c \
+				ft_pow.c \
+				ft_sign.c \
+
+F_MEMORY :=		ft_bzero.c \
+				ft_calloc.c \
+				ft_memchr.c \
+				ft_memcmp.c \
+				ft_memcpy.c \
+				ft_memmove.c \
+				ft_memset.c \
+				ft_freestr.c \
+				ft_freestr_tab.c \
+
+F_STRING :=		ft_count_words.c \
+				ft_split.c \
+				ft_stradd.c \
+				ft_strchr.c \
+				ft_striteri.c \
+				ft_strjoin.c \
+				ft_strlcat.c \
+				ft_strlcpy.c \
+				ft_strlen.c \
+				ft_strmapi.c \
+				ft_strncmp.c \
+				ft_strndup.c \
+				ft_strnstr.c \
+				ft_strrchr.c \
+				ft_strtrim.c \
+				ft_substr.c \
+
+
 
 # VARS GENERATION =====================================================================
 $(foreach comp,$(COMPONENTS),$(eval $(call generate_var_sources_dir,$(comp))))
