@@ -74,10 +74,6 @@ void				ft_putnbr_fd(long long n, ssize_t *len, int fd);
 void				ft_putnbr_base_fd(unsigned long int nbr, char c,
 						ssize_t *len, int fd);
 t_buff				get_next_line(int fd);
-void				*ft_parse_line(int fd, t_buff *data);
-void				*ft_extract_line(t_buff *data);
-void				ft_init_struct(t_buff *data, char *residual);
-void				*ft_clear_struct(t_buff *data);
 // LISTS
 void				ft_lstadd_front(t_list **lst, t_list *new);
 void				ft_lstadd_back(t_list **lst, t_list *new);

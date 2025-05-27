@@ -12,7 +12,7 @@
 
 #include "lib_improved.h"
 
-void	*ft_clear_struct(t_buff *data)
+static void	*ft_clear_struct(t_buff *data)
 {
 	data->full_buff = ft_freestr(data->full_buff);
 	data->residual = ft_freestr(data->residual);
@@ -20,7 +20,7 @@ void	*ft_clear_struct(t_buff *data)
 	return (data);
 }
 
-void	ft_init_struct(t_buff *data, char *residual)
+static void	ft_init_struct(t_buff *data, char *residual)
 {
 	data->full_buff = residual;
 	data->residual = NULL;
@@ -28,7 +28,7 @@ void	ft_init_struct(t_buff *data, char *residual)
 	data->read_value = 0;
 }
 
-void	*ft_extract_line(t_buff *data)
+static void	*ft_extract_line(t_buff *data)
 {
 	char	*post_nl;
 
@@ -56,7 +56,7 @@ void	*ft_extract_line(t_buff *data)
 	return (data);
 }
 
-void	*ft_parse_line(int fd, t_buff *data)
+static void	*ft_parse_line(int fd, t_buff *data)
 {
 	char	buffer[BUFFER_SIZE + 1];
 	char	*post_nl;
