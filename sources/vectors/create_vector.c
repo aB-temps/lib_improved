@@ -6,7 +6,7 @@
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 18:15:48 by abetemps          #+#    #+#             */
-/*   Updated: 2025/05/29 18:20:44 by abetemps         ###   ########.fr       */
+/*   Updated: 2025/05/29 18:27:04 by abetemps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_vector	*create_vector(size_t capacity, size_t datatype_size,
 		void (*clear_array)(t_vector *))
 {
-	t_vector *vec;
+	t_vector	*vec;
 
 	vec = malloc(sizeof(t_vector));
 	if (!vec)

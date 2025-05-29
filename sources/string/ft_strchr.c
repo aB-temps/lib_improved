@@ -6,7 +6,7 @@
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:55:34 by abetemps          #+#    #+#             */
-/*   Updated: 2025/04/06 15:44:12 by abetemps         ###   ########.fr       */
+/*   Updated: 2025/05/29 18:27:28 by abetemps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int len;
-	int i;
+	int	len;
+	int	i;
 
 	len = ft_strlen(s);
 	if (!s || len == 0)

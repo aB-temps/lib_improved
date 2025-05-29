@@ -6,11 +6,11 @@
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 18:38:00 by abetemps          #+#    #+#             */
-/*   Updated: 2025/05/27 18:52:02 by abetemps         ###   ########.fr       */
+/*   Updated: 2025/05/29 18:27:12 by abetemps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <stdbool.h>
+#include <stdbool.h>
 
 bool	ft_iswhitespace(int c)
 {
