@@ -6,7 +6,7 @@
 #    By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 11:53:48 by abetemps          #+#    #+#              #
-#    Updated: 2025/05/27 21:26:56 by abetemps         ###   ########.fr        #
+#    Updated: 2025/05/29 18:25:19 by abetemps         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ COMPONENTS :=	CHECK \
 				MATH \
 				MEMORY\
 				STRING \
-				UTILS
+				VECTORS \
 
 # FILES ===============================================================================
 F_CHECK :=		ft_isalnum.c \
@@ -118,6 +118,10 @@ F_STRING :=		ft_count_words.c \
 				ft_strtrim.c \
 				ft_substr.c \
 
+F_VECTORS :=	create_vector.c \
+				grow_vector.c \
+				add_element.c \
+				clear_vector.c \
 
 
 # VARS GENERATION =====================================================================
