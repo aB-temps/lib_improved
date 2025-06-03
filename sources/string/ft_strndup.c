@@ -6,7 +6,7 @@
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 21:07:54 by abetemps          #+#    #+#             */
-/*   Updated: 2025/04/06 15:44:12 by abetemps         ###   ########.fr       */
+/*   Updated: 2025/06/03 17:48:27 by abetemps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strndup(char *s, size_t n)
 	size_t	i;
 
 	i = 0;
-	ns = malloc(sizeof(char) * (n + 1));
+	ns = malloc(sizeof(char) * n + 1);
 	if (!ns)
 		return (NULL);
 	while (s[i] && i < n)
@@ -29,3 +29,4 @@ char	*ft_strndup(char *s, size_t n)
 	ns[i] = '\0';
 	return (ns);
 }
+
