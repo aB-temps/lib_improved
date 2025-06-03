@@ -6,7 +6,7 @@
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 17:11:45 by abetemps          #+#    #+#             */
-/*   Updated: 2025/05/21 13:38:55 by abetemps         ###   ########.fr       */
+/*   Updated: 2025/06/03 18:22:29 by abetemps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@ void	ft_bzero(void *s, size_t n)
 {
 	size_t				i;
 	size_t				count;
-	unsigned long long	*s_bis;
+	unsigned long long	*casted_s;
 
 	i = 0;
 	count = 0;
-	s_bis = (unsigned long long *)s;
+	casted_s = (unsigned long long *)s;
 	if (n >= sizeof(unsigned long long))
 	{
 		while (count < n - sizeof(unsigned long long))
 		{
-			*(s_bis + i++) = 0;
+			*(casted_s + i++) = 0;
 			count += sizeof(unsigned long long);
 		}
 	}
 	while (count < n)
-		*(((unsigned char *)s_bis) + count++) = 0;
+		*(((unsigned char *)casted_s) + count++) = 0;
 }
