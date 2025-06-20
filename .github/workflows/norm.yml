@@ -1,0 +1,19 @@
+name: CI-NORM
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: main
+
+  # pull-request:
+  #   branches: main
+
+jobs:
+  norminette:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - name : Norminettized
+        run : ls -la
