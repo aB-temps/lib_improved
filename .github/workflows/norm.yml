@@ -15,5 +15,11 @@ jobs:
       run:
         working-directory: .
     steps:
-      - name : Norminettized
-        run : ls -la
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Norminette
+        run: python3 -m pip install -U norminette
+
+      - name: Run Norminette
+        run: norminette
