@@ -6,7 +6,7 @@
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 18:19:45 by abetemps          #+#    #+#             */
-/*   Updated: 2025/05/29 18:21:19 by abetemps         ###   ########.fr       */
+/*   Updated: 2025/07/16 18:51:03 by abetemps         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ bool	grow_vector(t_vector *vec, size_t new_elements)
 		vec->array = ft_calloc(vec->capacity, vec->datatype_size);
 		if (!vec->array)
 		{
-			clear_vector(vec);
+			clear_vector(&vec);
 			return (false);
 		}
 		ft_memcpy(vec->array, old_array, vec->occupied_bytes);

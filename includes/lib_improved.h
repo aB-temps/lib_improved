@@ -141,7 +141,7 @@ t_vector				*create_vector(size_t capacity, size_t datatype_size,
 							void (*clear_array)(t_vector *));
 bool					grow_vector(t_vector *vec, size_t new_elements);
 bool					add_element(t_vector *vec, void *element);
-void					clear_vector(t_vector *vec);
+void					clear_vector(t_vector **vec);
 
 // =======================================================================
 
