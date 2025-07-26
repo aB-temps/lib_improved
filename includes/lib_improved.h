@@ -78,7 +78,7 @@ int						ft_atoi(const char *nptr);
 int						ft_atoi_base(char *s, int base);
 char					*ft_itoa(int n);
 // IO
-int						ft_printf(int fd, const char *str,
+int						ft_dprintf(int fd, const char *str,
 							...) __attribute__((format(printf, 2, 3)));
 void					ft_handle_datatype(char c, va_list *cursor,
 							ssize_t *length, int fd);

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_dprintf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -44,7 +44,7 @@ void	ft_handle_datatype(char c, va_list *cursor, ssize_t *length, int fd)
 		*length = -1;
 }
 
-int	ft_printf(int fd, const char *str, ...)
+int	ft_dprintf(int fd, const char *str, ...)
 {
 	va_list	cursor;
 	size_t	i;

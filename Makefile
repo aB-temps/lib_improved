@@ -6,7 +6,7 @@
 #    By: abetemps <abetemps@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 11:53:48 by abetemps          #+#    #+#              #
-#    Updated: 2025/05/29 18:25:19 by abetemps         ###   ########.fr        #
+#    Updated: 2025/07/26 10:29:51 by abetemps         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,8 +71,8 @@ F_CONVERSION :=	ft_atoi.c \
 				ft_tolower.c \
 				ft_toupper.c \
 
-F_IO :=			ft_printf.c \
-				ft_printf_utils.c \
+F_IO :=			ft_dprintf.c \
+				ft_dprintf_utils.c \
 				get_next_line.c \
 
 F_LISTS :=		ft_lstadd_back.c \
